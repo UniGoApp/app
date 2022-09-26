@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "unicarProject",
+    "slug": "unicarProject",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/logos/unicarC.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logos/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logos/unicarC.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/logos/web.ico"
+    }
+  }
+}
