@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
-import { SafeAreaView, Text, View } from "react-native";
-import { AuthContext } from "../context/auth";
-import FooterTabs from "../components/nav/FooterTabs";
+import React, { useContext } from 'react';
+import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+
+import { AuthContext } from '../context/auth';
+import FooterTabs from "../components/FooterTabs";
 import SafeViewAndroid from "../config/SafeArea";
 
-const Home = () => {
-
+export default function Home () {
+    
     const [state, setState] = useContext(AuthContext);
 
     return (
@@ -18,4 +19,9 @@ const Home = () => {
     );
 }
 
-export default Home;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+    }
+});    

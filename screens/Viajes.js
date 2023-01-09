@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import { AuthContext } from "../context/auth";
-import FooterTabs from "../components/nav/FooterTabs";
+import FooterTabs from "../components/FooterTabs";
 import SafeViewAndroid from "../config/SafeArea";
 
 const Viajes = () => {

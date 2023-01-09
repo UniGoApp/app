@@ -3,9 +3,9 @@ import {KeyboardAvoidingView, Text, StyleSheet, ScrollView} from 'react-native';
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-import Logo from '../components/auth/Logo';
-import UserInput from '../components/auth/UserInput';
-import SubmitButton from '../components/auth/SubmitButton';
+import Logo from '../components/Logo';
+import UserInput from '../components/UserInput';
+import SubmitButton from '../components/SubmitButton';
 import {AuthContext} from '../context/auth';
 import theme from '../config/theme';
 
@@ -61,6 +61,7 @@ const SignUp = ({ navigation }) => {
                     value={name}
                     setValue={setName}
                     autoCapitalize='words'
+                    autoCompleteType='text'
                     autoCorrect={false} />
                 <UserInput
                     name="Dirección de correo"
@@ -101,7 +102,8 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: 40,
         zIndex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginHorizontal: 24,
     },
     text: {
         fontSize: 28,

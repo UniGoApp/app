@@ -3,16 +3,16 @@ import {KeyboardAvoidingView, Text, StyleSheet, ScrollView} from 'react-native';
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 
-import Logo from '../components/auth/Logo';
-import UserInput from '../components/auth/UserInput';
-import SubmitButton from '../components/auth/SubmitButton';
+import Logo from '../components/Logo';
+import UserInput from '../components/UserInput';
+import SubmitButton from '../components/SubmitButton';
 import theme from '../config/theme';
 import {AuthContext} from '../context/auth';
 
 const SignIn = ({navigation}) => {
 
-    const [email, setEmail] = useState('joseto.lopez00@gmail.com');
-    const [password, setPassword] = useState('12345678');
+    const [email, setEmail] = useState('unmail@gmail.com');
+    const [password, setPassword] = useState('123456789');
     const [loading, setLoading] = useState(false);
     const [errorMSG, setError] = useState('');
 
@@ -26,7 +26,6 @@ const SignIn = ({navigation}) => {
             setLoading(false);
             return;
         }
-
         try {
             const {data} = await axios.post('/signin', {
                 email,
@@ -63,9 +62,7 @@ const SignIn = ({navigation}) => {
                     secureTextEntry={true}
                     autoCompleteType='password' />
 
-                <Text style={styles.forgot} onPress={() => {navigation.navigate('ForgotPassword')}}>
-                    ¿Has olvidado la contraseña?
-                </Text>
+                <Text style={styles.forgot} onPress={() => {navigation.navigate('ForgotPassword')}}>¿Has olvidado la contraseña?</Text>
 
                 <SubmitButton
                 title='Acceder'
@@ -89,7 +86,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginTop: 80,
         zIndex: 1,
-        backgroundColor: 'transparent'
+        marginHorizontal: 24,
     },
     text: {
         fontSize: 28,
@@ -99,7 +96,6 @@ const styles = StyleSheet.create({
     forgot: {
         marginBottom: 40,
         marginTop: -10,
-        marginLeft: 20,
         color: theme.color.azul
     },
     error: {

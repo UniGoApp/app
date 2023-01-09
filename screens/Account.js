@@ -4,11 +4,11 @@ import * as ImagePicker from 'expo-image-picker';
 import * as SecureStore from 'expo-secure-store';
 
 import axios from 'axios';
-import Logo from '../components/auth/Logo';
-import SvgElement from '../components/auth/SvgElement';
+import Logo from '../components/Logo';
+import SvgElement from '../components/SvgElement';
 import { AuthContext } from '../context/auth';
 import theme from '../config/theme';
-import SubmitButton from '../components/auth/SubmitButton';
+import SubmitButton from '../components/SubmitButton';
 
 const LINKS = [
     {

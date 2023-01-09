@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { SafeAreaView, Text, View, ScrollView ,TextInput } from "react-native";
-import SubmitButton from "../components/auth/SubmitButton";
+import SubmitButton from "../components/SubmitButton";
 
 const Publicar = () => {
 

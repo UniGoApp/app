@@ -1,11 +1,11 @@
 import React, {useState, useContext} from "react";
 import { SafeAreaView, FlatList, Text, View, StyleSheet, TouchableOpacity } from "react-native";
-import SvgElement from "../components/auth/SvgElement";
-import FooterTabs from "../components/nav/FooterTabs";
+import SvgElement from "../components/SvgElement";
+import FooterTabs from "../components/FooterTabs";
 import SafeViewAndroid from "../config/SafeArea";
 import theme from "../config/theme";
 import { AuthContext } from "../context/auth";
-import Loader from "../components/auth/Loader";
+import Loader from "../components/Loader";
 import axios from "axios";
 
 const data = [];

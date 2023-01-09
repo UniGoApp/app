@@ -1,10 +1,9 @@
 
 import React, {useState, useContext} from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from "react-native";
-import SvgElement from "../components/auth/SvgElement";
+import SvgElement from "../components/SvgElement";
 import theme from "../config/theme";
 import { AuthContext } from "../context/auth";
-import Loader from "../components/auth/Loader";
 
 export default function Billete({route, navigation}){
 
@@ -69,7 +68,7 @@ export default function Billete({route, navigation}){
                 <View style={styles.ticket}>
                     <View style={styles.qr}>
                         <Text style={[styles.centered, {marginBottom: 12, fontSize: theme.size.body}]}>{billeteDATA.fecha}</Text>
-                        <Image source={require('../assets/logos/unicarC.png')} style={{width: 150, height: 150}}/>
+                        <Image source={require('../assets/icon.png')} style={{width: 150, height: 150}}/>
                         <Text>{billeteDATA.id}</Text>
                     </View>
                     <View style={{ borderTopWidth: 2, borderStyle: 'dashed', borderColor: theme.color.light}}>

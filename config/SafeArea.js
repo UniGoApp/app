@@ -4,7 +4,7 @@ import theme from "./theme";
 export default StyleSheet.create({
   AndroidSafeArea: {
     flex: 1,
-    backgroundColor: theme.color.white,
+    backgroundColor: theme.background.app,
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
   }
 });

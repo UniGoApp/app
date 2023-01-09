@@ -1,11 +1,10 @@
 import React, {useState, useContext} from 'react';
 import {KeyboardAvoidingView, Text, Image, StyleSheet, ScrollView, Alert} from 'react-native';
 import axios from 'axios';
-import * as SecureStore from 'expo-secure-store';
 
-import Logo from '../components/auth/Logo';
-import UserInput from '../components/auth/UserInput';
-import SubmitButton from '../components/auth/SubmitButton';
+import Logo from '../components/Logo';
+import UserInput from '../components/UserInput';
+import SubmitButton from '../components/SubmitButton';
 import theme from '../config/theme';
 import {AuthContext} from '../context/auth';
 
@@ -98,9 +97,9 @@ const ForgotPassword = ({navigation}) => {
         <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === "ios" ? "padding" : "height"}>
             <ScrollView style={{zIndex: 10}}>
                 <Logo>
-                    <Image source={require('../assets/recoverPassword.png')} style={{width: 150, height: 150, borderRadius: 100, marginTop: 40}}/>
+                    <Image source={require('../assets/images/recoverPassword.png')} style={{width: 150, height: 150, borderRadius: 100, marginTop: 40}}/>
                 </Logo>
-                <Text style={styles.text}>Rellena los campos a continuación</Text>
+                <Text style={styles.text}>Recupera tu contraseña</Text>
                  
                 <UserInput
                 name="Dirección de correo"
@@ -143,7 +142,9 @@ const ForgotPassword = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginHorizontal: 24,
+        marginTop: 50,
     },
     text: {
         fontSize: 28,

@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "unicarProject",
-    "slug": "unicarProject",
+    "name": "unigo-app",
+    "slug": "unigo-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logos/unicarC.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/logos/splash.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,16 +18,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": false
+      "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logos/unicarC.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/logos/web.ico"
+      "favicon": "./assets/favicon.png"
     }
   }
 }
