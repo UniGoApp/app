@@ -12,15 +12,15 @@ import SignUp from './screens/SignUp'
 import ForgotPassword from './screens/ForgotPassword'
 
 import Home from './screens/Home'
+import Notifications from './screens/Notifications'
 import Account from './screens/Account'
-import Viajes from './screens/Viajes'
-import Reservas from './screens/Reservas'
-import Ajustes from './screens/Ajustes'
-import Publicar from './screens/Publicar'
-import Sugerencias from './screens/Sugerencias'
+import Trips from './screens/Trips'
+import Reservations from './screens/Reservations'
+import Settings from './screens/Settings'
+import New from './screens/New'
 import Legal from './screens/Legal'
-import Billete from './screens/Billete'
-import Soporte from './screens/Soporte'
+import Ticket from './screens/Ticket'
+import Support from './screens/Support'
 import theme from './config/theme';
 
 export default function Navigation() {
@@ -44,20 +44,26 @@ export default function Navigation() {
                 <>
                     {/* MENU SCREENS: */}
                     <Stack.Screen name="Home" component={Home} />
-                    <Stack.Screen name="Viajes" component={Viajes} />
-                    <Stack.Screen name="Publicar" component={Publicar} />
-                    <Stack.Screen name="Reservas" component={Reservas} />
-                    <Stack.Screen name="Billete" component={Billete}/>
+                    <Stack.Screen name="Notifications" component={Notifications} options={{
+                        headerShown: true,
+                        headerStyle: {
+                            backgroundColor: theme.background.app,
+                          },
+                        title: 'Notificaciones',
+                    }}/>
+                    <Stack.Screen name="Trips" component={Trips} />
+                    <Stack.Screen name="New" component={New} />
+                    <Stack.Screen name="Reservations" component={Reservations} />
+                    <Stack.Screen name="Ticket" component={Ticket}/>
                     <Stack.Screen name="Account" component={Account} options={{
                         headerShown: true,
                         title: 'Mi perfil',
                         headerRight: () => <LogOut />
                     }} />
                     {/* ACCOUNT SCREENS: */}
-                    <Stack.Screen name="Ajustes" component={Ajustes} />
-                    <Stack.Screen name="Sugerencias" component={Sugerencias} />
+                    <Stack.Screen name="Settings" component={Settings} />
                     <Stack.Screen name="Legal" component={Legal} />
-                    <Stack.Screen name="Soporte" component={Soporte} />
+                    <Stack.Screen name="Support" component={Support} />
                 </>
             ) : (
                 <>

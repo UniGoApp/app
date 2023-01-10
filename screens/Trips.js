@@ -4,7 +4,7 @@ import { AuthContext } from "../context/auth";
 import FooterTabs from "../components/FooterTabs";
 import SafeScreen from "../config/SafeArea";
 
-export default function Viajes() {
+export default function Trips() {
 
     const [state, setState] = useContext(AuthContext);
 

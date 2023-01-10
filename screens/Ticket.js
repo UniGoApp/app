@@ -5,7 +5,7 @@ import SvgElement from "../components/SvgElement";
 import theme from "../config/theme";
 import { AuthContext } from "../context/auth";
 
-export default function Billete({route, navigation}){
+export default function Ticket({route, navigation}){
 
     const {billeteDATA} = route.params;
     const [state, setState] = useContext(AuthContext);

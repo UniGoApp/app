@@ -15,7 +15,7 @@ import SafeScreen from '../config/SafeArea';
 const LINKS = [
     {
         id: 1,
-        screen_id: 'Ajustes',
+        screen_id: 'Settings',
         title: 'Editar perfil',
         icon: 'person',
         descr: 'Modificar datos del usuario.'
@@ -28,13 +28,6 @@ const LINKS = [
         descr: 'Preferencias sobre notificaciones y boletines.'
     },
     {
-        id: 3,
-        screen_id: 'Sugerencias',
-        title: 'Buzón de sugerencias',
-        icon: 'mail',
-        descr: 'Envíe sus comentarios o críticas para tenerlas en cuenta y mejorar la aplicacion y ofrecer un mejor servicio.'
-    },
-    {
         id: 4,
         screen_id: 'Legal',
         title: 'Información Legal',
@@ -43,7 +36,7 @@ const LINKS = [
     },
     {
         id: 5,
-        screen_id: 'Soporte',
+        screen_id: 'Support',
         title: 'Soporte y asistencia',
         icon: 'help',
         descr: 'Contacta con nosotros y te ayudaremos con cualquier incidencia o duda.'

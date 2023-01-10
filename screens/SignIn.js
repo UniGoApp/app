@@ -37,6 +37,7 @@ const SignIn = ({navigation}) => {
             navigation.navigate("Home");
 
         } catch(err) {
+            console.log('err :>> ', err);
             setError('Ha ocurrido un error, inténtelo de nuevo más tarde.');
             setLoading(false);
         }

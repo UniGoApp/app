@@ -54,7 +54,7 @@ const data = [];
 //     },
 // ];
 
-export default function Reservas({navigation}){
+export default function Reservations({navigation}){
 
     const [state, setState] = useContext(AuthContext);
     const [loading, setLoading] = useState(true);
