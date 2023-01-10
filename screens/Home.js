@@ -3,19 +3,18 @@ import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
 
 import { AuthContext } from '../context/auth';
 import FooterTabs from "../components/FooterTabs";
-import SafeViewAndroid from "../config/SafeArea";
+import SafeScreen from "../config/SafeArea";
 
 export default function Home () {
-    
     const [state, setState] = useContext(AuthContext);
 
     return (
-        <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+        <SafeScreen>
             <Text> {JSON.stringify(state, null, 4)} </Text>
             <View style={{flex: 1, justifyContent: 'flex-end'}}>
                 <FooterTabs />
             </View>
-        </SafeAreaView>
+        </SafeScreen>
     );
 }
 

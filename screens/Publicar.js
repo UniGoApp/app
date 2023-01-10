@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, View, ScrollView ,TextInput } from "react-native";
-import SubmitButton from "../components/SubmitButton";
+import { View, Text } from "react-native";
+import FooterTabs from "../components/FooterTabs";
+import SafeScreen from "../config/SafeArea";
 
 const Publicar = () => {
 
@@ -13,11 +14,12 @@ const Publicar = () => {
     };
 
     return (
-        <SafeAreaView>
-            <ScrollView>
+        <SafeScreen>
                 <Text>Publicar</Text>
-            </ScrollView>
-        </SafeAreaView>
+                <View style={{flex: 1, justifyContent: 'flex-end'}}>
+                    <FooterTabs />
+                </View>
+        </SafeScreen>
     );
 }
 

@@ -1,26 +1,27 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable} from 'react-native';
+import SafeScreen from '../config/SafeArea';
 
 export default function Welcome ({navigation}) {
-    const handlePess = () => {
-        navigation.navigate('SignIn');
-    }
+    const handlePess = () => navigation.navigate('SignIn');
 
     return (
-        <View style={styles.container}>
-            <View>
-                <Image 
-                source={require('../assets/images/bus-stop.png')}
-                style={styles.welcomeImage}
-                />
-                <Text style={styles.title}>Una nueva forma de ir a la universidad!</Text>
+        <SafeScreen>
+            <View style={styles.container}>
+                <View>
+                    <Image 
+                    source={require('../assets/images/bus-stop.png')}
+                    style={styles.welcomeImage}
+                    />
+                    <Text style={styles.title}>Una nueva forma de ir a la universidad!</Text>
+                </View>
+                <View style={{alignSelf: 'flex-end'}}>
+                    <Pressable style={styles.button} onPress={handlePess}>
+                        <Text  style={styles.text}>Siguiente</Text>
+                    </Pressable>
+                </View>
             </View>
-            <View style={{alignSelf: 'flex-end'}}>
-                <Pressable style={styles.button} onPress={handlePess}>
-                    <Text  style={styles.text}>Siguiente</Text>
-                </Pressable>
-            </View>
-        </View>
+        </SafeScreen>
     );
 }
 

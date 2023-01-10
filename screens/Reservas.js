@@ -1,12 +1,14 @@
 import React, {useState, useContext} from "react";
 import { SafeAreaView, FlatList, Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import axios from "axios";
+
 import SvgElement from "../components/SvgElement";
 import FooterTabs from "../components/FooterTabs";
 import SafeViewAndroid from "../config/SafeArea";
 import theme from "../config/theme";
 import { AuthContext } from "../context/auth";
 import Loader from "../components/Loader";
-import axios from "axios";
+import SafeScreen from "../config/SafeArea";
 
 const data = [];
 // const data = [
@@ -96,7 +98,7 @@ export default function Reservas({navigation}){
     );
 
     return(
-        <SafeAreaView style={[SafeViewAndroid.AndroidSafeArea, {flex: 1}]} >
+        <SafeScreen style={{flex: 1}} >
             <View style={styles.container}> 
                 <Text style={styles.title}>Viajes previstos:</Text>
                 <View style={styles.subrayado}></View>
@@ -114,7 +116,7 @@ export default function Reservas({navigation}){
             <View style={{flex: 1, justifyContent: 'flex-end'}}>
                 <FooterTabs />
             </View>
-        </SafeAreaView>
+        </SafeScreen>
     );
 }
 

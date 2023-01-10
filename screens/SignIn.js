@@ -31,7 +31,6 @@ const SignIn = ({navigation}) => {
                 email,
                 password
             });
-
             setState(data);
             await SecureStore.setItemAsync('authToken', JSON.stringify(data));
             //Redirect to other page and save token on async storage

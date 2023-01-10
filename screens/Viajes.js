@@ -2,20 +2,18 @@ import React, { useContext } from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import { AuthContext } from "../context/auth";
 import FooterTabs from "../components/FooterTabs";
-import SafeViewAndroid from "../config/SafeArea";
+import SafeScreen from "../config/SafeArea";
 
-const Viajes = () => {
+export default function Viajes() {
 
     const [state, setState] = useContext(AuthContext);
 
     return (
-        <SafeAreaView style={SafeViewAndroid.AndroidSafeArea}>
+        <SafeScreen>
             <Text>Viajes</Text>
             <View style={{flex: 1, justifyContent: 'flex-end'}}>
                 <FooterTabs />
             </View>
-        </SafeAreaView>
+        </SafeScreen>
     );
 }
-
-export default Viajes;

@@ -11,7 +11,7 @@ const theme = {
         caution: 'tomato'
     },
     background: {
-        app: '#e3e3e3',
+        app: '#f2f2f2',
         caution: '#ffddcc'
     },
     weight: {

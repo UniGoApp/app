@@ -9,6 +9,8 @@ import SvgElement from '../components/SvgElement';
 import { AuthContext } from '../context/auth';
 import theme from '../config/theme';
 import SubmitButton from '../components/SubmitButton';
+import FooterTabs from '../components/FooterTabs';
+import SafeScreen from '../config/SafeArea';
 
 const LINKS = [
     {
@@ -234,86 +236,95 @@ export default function Account({navigation}){
     };
 
     return(
-        <ScrollView style={{flex: 1}}>
-            <View style={{flex: 1, justifyContent: 'flex-end', padding: 10}}>
-                <Logo>
-                    {image ? (
-                        <Image source={{uri: image}} style={{width: 190, height: 190, borderRadius: 100, marginVertical: 20}}/>
-                    ) : uploadImage ? (
-                        <Image source={{uri: uploadImage}} style={{width: 190, height: 190, borderRadius: 100, marginVertical: 20}}/>
-                    ) : (
-                        <TouchableHighlight underlayColor='#ffffff00' style={{height: 180}} onPress={() => handleUpload()}>
-                            <SvgElement name="camera" size="36" color={theme.color.verde} />
+        <SafeScreen>
+            <ScrollView>
+                <View style={{flex: 1, justifyContent: 'flex-end', padding: 10}}>
+                    <Logo>
+                        {image ? (
+                            <Image source={{uri: image}} style={{width: 190, height: 190, borderRadius: 100, marginVertical: 20}}/>
+                        ) : uploadImage ? (
+                            <Image source={{uri: uploadImage}} style={{width: 190, height: 190, borderRadius: 100, marginVertical: 20}}/>
+                        ) : (
+                            <TouchableHighlight underlayColor='#ffffff00' style={{height: 180}} onPress={() => handleUpload()}>
+                                <SvgElement name="camera" size="36" color={theme.color.verde} />
+                            </TouchableHighlight>
+                        )}
+                        { image ? (
+                        <TouchableHighlight style={{position: 'absolute'}} underlayColor='#ffffff00' onPress={() => handleUpload()}>
+                            <SvgElement name="camera" size="36" color="black" style={{
+                                marginTop: -5, marginBottom: 10, alignSelf: 'center'
+                            }}/>
                         </TouchableHighlight>
-                    )}
-                    { image ? (
-                    <TouchableHighlight style={{position: 'absolute'}} underlayColor='#ffffff00' onPress={() => handleUpload()}>
-                        <SvgElement name="camera" size="36" color="black" style={{
-                            marginTop: -5, marginBottom: 10, alignSelf: 'center'
-                        }}/>
-                    </TouchableHighlight>
-                ) : (<></>)}
-                </Logo>
+                    ) : (<></>)}
+                    </Logo>
 
-                <Text style={styles.titular}>Datos personales</Text>
-                <View style={styles.userCard}>
-                    <Text>{username}</Text>
-                    <Text>Email: {email}</Text>
-                    <Text>Número de teléfono: {phone}</Text>
-                    <Text>Miembro desde: {creationTime}</Text>
-                </View>
-            </View>
-            {
-                LINKS.map((item) => <Item key={item.id} props={item} />)
-            }
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={modalVisible}
-                presentationStyle="overFullScreen"
-                onRequestClose={() => {
-                    setModalVisible(!modalVisible);
-                }}
-                onOrientationChange={() => {
-                    setModalVisible(!modalVisible);
-                }}
-            >
-                <View style={styles.centeredView}>
-                    <View style={styles.modalView}>
-                        <View style={styles.column}>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>Notificaciones Push</Text>
-                                <Switch
-                                    trackColor="#767577"
-                                    thumbColor={switchPUSHEnabled ? theme.color.verde : "#f4f3f4"}
-                                    ios_backgroundColor="#3e3e3e"
-                                    onValueChange={toggleSwitchPUSH}
-                                    value={switchPUSHEnabled}
-                                />
-                            </View>
-                            <Text style={[theme.size.subtitle, {paddingBottom: 15}]}>Activalo para recibir notificaciones y actualziaciones de tus viajes publicados o inscritos.</Text>
-                            <View style={styles.row}>
-                                <Text style={styles.text}>Suscripción a boletines</Text>
-                                <Switch
-                                    trackColor="#767577"
-                                    thumbColor={switchEMAILEnabled ? theme.color.verde : "#f4f3f4"}
-                                    ios_backgroundColor="#3e3e3e"
-                                    onValueChange={toggleSwitchEMAIL}
-                                    value={switchEMAILEnabled}
-                                />
-                            </View>
-                            <Text style={[theme.size.subtitle, {paddingBottom: 15}]}>Recibe todas las notificaciones sobre actualizaciones y novedades de la aplicación.</Text>
-                        </View>
-                        {/* //Terminar de ver en SignIn */}
-                        <SubmitButton title="Guardar preferencias" handleSubmit={() => {
-                            // Con un await hago que el boton se quede cargando hasta que se actualicen los datos en la bbdd
-                            handleSubmitPreferencias();
-                            setModalVisible(!modalVisible);
-                        }} />
+                    <Text style={styles.titular}>Datos personales</Text>
+                    <View style={styles.userCard}>
+                        <Text>{username}</Text>
+                        <Text>Email: {email}</Text>
+                        <Text>Número de teléfono: {phone}</Text>
+                        <Text>Miembro desde: {creationTime}</Text>
                     </View>
                 </View>
-            </Modal>
-        </ScrollView>
+                {
+                    LINKS.map((item) => <Item key={item.id} props={item} />)
+                }
+                <Modal
+                    animationType="slide"
+                    transparent={true}
+                    visible={modalVisible}
+                    presentationStyle="overFullScreen"
+                    onRequestClose={() => {
+                        setModalVisible(!modalVisible);
+                    }}
+                    onOrientationChange={() => {
+                        setModalVisible(!modalVisible);
+                    }}
+                >
+                    <View style={styles.centeredView}>
+                        <View style={styles.modalView}>
+                            <View style={styles.column}>
+                                <View style={styles.row}>
+                                    <Text style={styles.text}>Notificaciones Push</Text>
+                                    <Switch
+                                        trackColor="#767577"
+                                        thumbColor={switchPUSHEnabled ? theme.color.verde : "#f4f3f4"}
+                                        ios_backgroundColor="#3e3e3e"
+                                        onValueChange={toggleSwitchPUSH}
+                                        value={switchPUSHEnabled}
+                                    />
+                                </View>
+                                <Text style={[theme.size.subtitle, {paddingBottom: 15}]}>Activalo para recibir notificaciones y actualziaciones de tus viajes publicados o inscritos.</Text>
+                                <View style={styles.row}>
+                                    <Text style={styles.text}>Suscripción a boletines</Text>
+                                    <Switch
+                                        trackColor="#767577"
+                                        thumbColor={switchEMAILEnabled ? theme.color.verde : "#f4f3f4"}
+                                        ios_backgroundColor="#3e3e3e"
+                                        onValueChange={toggleSwitchEMAIL}
+                                        value={switchEMAILEnabled}
+                                    />
+                                </View>
+                                <Text style={[theme.size.subtitle, {paddingBottom: 15}]}>Recibe todas las notificaciones sobre actualizaciones y novedades de la aplicación.</Text>
+                            </View>
+                            {/* //Terminar de ver en SignIn */}
+                            <SubmitButton title="Guardar preferencias" handleSubmit={() => {
+                                // Con un await hago que el boton se quede cargando hasta que se actualicen los datos en la bbdd
+                                handleSubmitPreferencias();
+                                setModalVisible(!modalVisible);
+                            }} />
+                        </View>
+                    </View>
+                </Modal>
+                <View style={{flex: 1, justifyContent: 'flex-end'}}>
+                    <FooterTabs />
+                </View>
+            </ScrollView>
+            <View style={{flex: 1, justifyContent: 'flex-end'}}>
+                <FooterTabs />
+            </View>
+        </SafeScreen>
+        
     );
 }
 

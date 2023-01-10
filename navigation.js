@@ -21,11 +21,11 @@ import Sugerencias from './screens/Sugerencias'
 import Legal from './screens/Legal'
 import Billete from './screens/Billete'
 import Soporte from './screens/Soporte'
+import theme from './config/theme';
 
 export default function Navigation() {
     const [state, setState] = useContext(AuthContext);
     const authenticated = state && (state.token !== "") && (state.user !== null);
-    
 
     return (
         <Stack.Navigator
@@ -36,26 +36,20 @@ export default function Navigation() {
                 orientation: 'portrait_up',
                 headerTitleAlign: 'center',
                 headerBackTitle: '',
-                navigationBarHidden: true
+                navigationBarColor: theme.background.app,
+                headerShown: false
             }}
         >
             {authenticated ? (
                 <>
                     {/* MENU SCREENS: */}
-                    <Stack.Screen name="Home" component={Home} options={{
-                        headerShown: false
-                    }}/>
-                    <Stack.Screen name="Viajes" component={Viajes} options={{
-                        headerShown: false
-                    }}/>
-                    <Stack.Screen name="Publicar" component={Publicar} options={{
-                        title: 'Publicar nuevo viaje'
-                    }}/>
-                    <Stack.Screen name="Reservas" component={Reservas} options={{
-                        headerShown: false
-                    }}/>
+                    <Stack.Screen name="Home" component={Home} />
+                    <Stack.Screen name="Viajes" component={Viajes} />
+                    <Stack.Screen name="Publicar" component={Publicar} />
+                    <Stack.Screen name="Reservas" component={Reservas} />
                     <Stack.Screen name="Billete" component={Billete}/>
                     <Stack.Screen name="Account" component={Account} options={{
+                        headerShown: true,
                         title: 'Mi perfil',
                         headerRight: () => <LogOut />
                     }} />
@@ -67,12 +61,10 @@ export default function Navigation() {
                 </>
             ) : (
                 <>
-                    <Stack.Screen name="Welcome" component={Welcome} options={{headerShown: false}}/>
-                    <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false}}/>
-                    <Stack.Screen name="SignUp" component={SignUp} options={{headerShown: false}}/>
-                    <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{
-                        title: 'Recuperar contraseña'
-                    }} />
+                    <Stack.Screen name="Welcome" component={Welcome} />
+                    <Stack.Screen name="SignIn" component={SignIn} />
+                    <Stack.Screen name="SignUp" component={SignUp} />
+                    <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
                     <Stack.Screen name="Legal" component={Legal} />
                     
                 </>
